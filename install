@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+function replace-home-file {
+  if [ -e ~/$1 ]; then
+    mv -f ~/$1 ~/$1.old
+  fi
+  ln -s $SCRIPT_DIR/$2 ~/$1
+}
+
+replace-home-file .bash_profile bash_profile
+replace-home-file .profile profile
+
+#git submodule update --init --quiet
+
