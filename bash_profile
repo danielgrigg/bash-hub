@@ -18,7 +18,6 @@ alias j='jobs -l'
 alias whicha='type -a'
 alias ..='cd ..'
 alias emacs='open -b org.gnu.Aquamacs'
-alias gvim='open -a MacVim'
 
 # git aliases
 alias gs='git status'
@@ -33,9 +32,13 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export PS1='\W[\j]\$ '
 
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/daniel/hubs/clojure-hub/bin:/Users/daniel/hubs/clojure-hub/bin # clojure-hub
-export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
+export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
 
 #export LEIN_REPL_HOST=10.0.1.4
 
+shopt -s cdspell
+
+function psgrep () { ps axu | grep -v grep | igrep "$@"; }
