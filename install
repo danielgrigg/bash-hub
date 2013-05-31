@@ -11,6 +11,7 @@ function replace-home-file {
 
 replace-home-file .bash_profile bash_profile
 replace-home-file .profile profile
+replace-home-file .git-completion.bash git-completion.bash
+replace-home-file .git-prompt.sh git-prompt.sh
 
 #git submodule update --init --quiet
-

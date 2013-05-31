@@ -3,7 +3,7 @@ alias lx='ls -lXB'
 alias la='ll -a'
 alias lk='ls -lSr'
 alias lt='ls -ltr'
-alias ll='ls -lv'
+alias ll='ls -l'
 alias egrep='egrep -In --color=auto'
 alias grep='egrep'
 alias rgrep='grep -r'
@@ -37,9 +37,35 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
-
+#export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
 #export LEIN_REPL_HOST=10.0.1.4
 
 shopt -s cdspell
 
 function psgrep () { ps axu | grep -v grep | igrep "$@"; }
+
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
+
+MAGENTA="\[\033[0;35m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[34m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+CYAN="\[\033[0;36m\]"
+GREEN="\[\033[0;32m\]"
+GIT_PS1_SHOWDIRTYSTATE=true
+export LS_OPTIONS='--color=auto'
+export CLICOLOR='Yes'
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+export PS1=$LIGHT_GRAY"\u@\h"'$(
+    g=$(__git_ps1 " (%s)")
+    if [[ "$g" =~ \*\)$ ]]
+    then echo "'$YELLOW'$g"
+    elif [[ "$g" =~ \+\)$ ]]
+    then echo "'$MAGENTA'$g"
+    else echo "'$CYAN'$g"
+    fi)'$BLUE" \w"$GREEN": "
+alias gg='git status -s'
+
