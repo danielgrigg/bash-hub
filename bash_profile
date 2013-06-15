@@ -1,27 +1,22 @@
 alias ls='ls -Gh'
-alias lx='ls -lXB'
+alias ll='ls -l'
 alias la='ll -a'
 alias lk='ls -lSr'
 alias lt='ls -ltr'
-alias ll='ls -l'
-alias egrep='egrep -In --color=auto'
-alias grep='egrep'
+alias egrep='egrep -I --color=auto'
 alias rgrep='grep -r'
 alias less='less -R'
 alias ldd='otool -L'
 alias eject='hdiutil eject'
-alias make='make -j4'
-alias gvim='open -a MacVim'
 alias mkdir='mkdir -p'
 alias h='history'
 alias j='jobs -l'
 alias whicha='type -a'
 alias ..='cd ..'
-alias emacs='open -b org.gnu.Aquamacs'
 
-# git aliases
 alias gs='git status'
 alias gc='git commit'
+alias gg='git status -s'
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -30,7 +25,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-export PS1='\W[\j]\$ '
 
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/daniel/hubs/clojure-hub/bin:/Users/daniel/hubs/clojure-hub/bin # clojure-hub
 export PATH=/usr/local/sbin:$PATH
@@ -58,14 +52,14 @@ GIT_PS1_SHOWDIRTYSTATE=true
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+export PS1='\W$(__git_ps1) \$ '
 
-export PS1=$LIGHT_GRAY"\u@\h"'$(
-    g=$(__git_ps1 " (%s)")
-    if [[ "$g" =~ \*\)$ ]]
-    then echo "'$YELLOW'$g"
-    elif [[ "$g" =~ \+\)$ ]]
-    then echo "'$MAGENTA'$g"
-    else echo "'$CYAN'$g"
-    fi)'$BLUE" \w"$GREEN": "
-alias gg='git status -s'
+#export PS1=$LIGHT_GRAY"\u@\h"'$(
+#    g=$(__git_ps1 " (%s)")
+#    if [[ "$g" =~ \*\)$ ]]
+#    then echo "'$YELLOW'$g"
+#    elif [[ "$g" =~ \+\)$ ]]
+#    then echo "'$MAGENTA'$g"
+#    else echo "'$CYAN'$g"
+#    fi)'$BLUE" \w"$GREEN": "
 
