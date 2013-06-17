@@ -32,7 +32,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
 #export JAVA_HOME=/Library/Java/Home
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
 #export LEIN_REPL_HOST=10.0.1.4
 
 shopt -s cdspell
