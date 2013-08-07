@@ -17,6 +17,7 @@ alias ..='cd ..'
 alias gs='git status'
 alias gc='git commit'
 alias gg='git status -s'
+alias emacs='open -b org.gnu.Aquamacs'
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_md=$'\E[01;31m'
