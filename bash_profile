@@ -26,7 +26,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/daniel/hubs/clojure-hub/bin:/Users/daniel/hubs/clojure-hub/bin # clojure-hub
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/daniel/hubs/clojure-hub/bin:/Users/daniel/hubs/clojure-hub/bin # clojure-hub
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
@@ -63,3 +63,8 @@ export PS1='\W$(__git_ps1) \$ '
 #    else echo "'$CYAN'$g"
 #    fi)'$BLUE" \w"$GREEN": "
 
+OCLINT_RELEASE=oclint-0.8.dev.d09e807
+if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
+  OCLINT_HOME=~/tools/$OCLINT_RELEASE
+  export PATH=$OCLINT_HOME/bin:$PATH
+fi
