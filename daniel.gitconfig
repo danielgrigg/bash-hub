@@ -1,0 +1,15 @@
+[user]
+	name = Daniel Casimir Grigg
+	email = mail@danielgrigg.com
+[github]
+	user = danielgrigg
+	token = 7f4c10cfe28c32e6dbb620695742d91f
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[core]
+	excludesfile = /Users/daniel/.gitignore
+	editor = /usr/bin/vim
+
+[diff]
+	color = true
