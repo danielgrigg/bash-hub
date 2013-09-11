@@ -13,11 +13,11 @@ alias h='history'
 alias j='jobs -l'
 alias whicha='type -a'
 alias ..='cd ..'
+alias emacs='open -a Aquamacs'
 
 alias gs='git status'
 alias gc='git commit'
 alias gg='git status -s'
-alias emacs='open -b org.gnu.Aquamacs'
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -32,6 +32,8 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
+# Add ruby gems
+export PATH=$(brew --prefix ruby)/bin:$PATH
 #export JAVA_HOME=/Library/Java/Home
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
 #export LEIN_REPL_HOST=10.0.1.4
