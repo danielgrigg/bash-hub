@@ -19,6 +19,8 @@ alias gs='git status'
 alias gc='git commit'
 alias gg='git status -s'
 alias gd='git diff -w'
+alias kd='git difftool'
+alias km='git mergetool'
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -72,3 +74,5 @@ if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
   OCLINT_HOME=~/tools/$OCLINT_RELEASE
   export PATH=$OCLINT_HOME/bin:$PATH
 fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
