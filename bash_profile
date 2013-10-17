@@ -16,6 +16,7 @@ alias ..='cd ..'
 alias emacs='open -a Aquamacs'
 
 alias gs='git status'
+alias gd='git diff -w'
 alias gc='git commit'
 alias gg='git status -s'
 alias gd='git diff -w'
@@ -41,6 +42,7 @@ export PATH=$(brew --prefix ruby)/bin:$PATH
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
 #export LEIN_REPL_HOST=10.0.1.4
 
+export PATH=$(brew --prefix ruby)/bin:$PATH
 shopt -s cdspell
 
 function psgrep () { ps axu | grep -v grep | igrep "$@"; }
@@ -58,7 +60,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-export PS1='\W$(__git_ps1) \$ '
+#export PS1='\W$(__git_ps1) \$ '
 
 #export PS1=$LIGHT_GRAY"\u@\h"'$(
 #    g=$(__git_ps1 " (%s)")
@@ -75,4 +77,10 @@ if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
   export PATH=$OCLINT_HOME/bin:$PATH
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
+
+# added by Anaconda 1.6.1 installer
+#export PATH="/Users/daniel/anaconda/bin:$PATH"
+#export ATLAS_HOME=/usr/local/Cellar/atlassian-plugin-sdk/4.2.9/
+
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
