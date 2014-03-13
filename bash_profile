@@ -20,6 +20,8 @@ alias gd='git diff -w'
 alias gc='git commit'
 alias gg='git status -s'
 alias gd='git diff -w'
+alias kd='git difftool'
+alias km='git mergetool'
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -34,10 +36,14 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
+# Add ruby gems
+
+if [[ $(type -p brew) ]]; then
+  export PATH=$(brew --prefix ruby)/bin:$PATH
+fi
 #export JAVA_HOME=/Library/Java/Home
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
 #export LEIN_REPL_HOST=10.0.1.4
-
 shopt -s cdspell
 
 function psgrep () { ps axu | grep -v grep | igrep "$@"; }
@@ -72,28 +78,11 @@ if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
   export PATH=$OCLINT_HOME/bin:$PATH
 fi
 
-export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
-
-# added by Anaconda 1.6.1 installer
-export PATH="/Users/daniel/anaconda/bin:$PATH"
-export ATLAS_HOME=/usr/local/Cellar/atlassian-plugin-sdk/4.2.9/
+#export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-##
-# Your previous /Users/daniel/.bash_profile file was backed up as /Users/daniel/.bash_profile.macports-saved_2013-12-18_at_14:04:19
-##
-
 # MacPorts Installer addition on 2013-12-18_at_14:04:19: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-##
-# Your previous /Users/daniel/.bash_profile file was backed up as /Users/daniel/.bash_profile.macports-saved_2013-12-18_at_14:12:17
-##
-
-# MacPorts Installer addition on 2013-12-18_at_14:12:17: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
