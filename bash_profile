@@ -14,8 +14,8 @@ alias j='jobs -l'
 alias whicha='type -a'
 alias ..='cd ..'
 alias emacs='open -a Aquamacs'
+alias gvim='open -a MacVim'
 
-alias gs='git status'
 alias gd='git diff -w'
 alias gc='git commit'
 alias gg='git status -s'
@@ -34,13 +34,10 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
-# Add ruby gems
-export PATH=$(brew --prefix ruby)/bin:$PATH
 #export JAVA_HOME=/Library/Java/Home
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
 #export LEIN_REPL_HOST=10.0.1.4
 
-export PATH=$(brew --prefix ruby)/bin:$PATH
 shopt -s cdspell
 
 function psgrep () { ps axu | grep -v grep | igrep "$@"; }
@@ -58,7 +55,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-#export PS1='\W$(__git_ps1) \$ '
+export PS1='\W$(__git_ps1) \$ '
 
 #export PS1=$LIGHT_GRAY"\u@\h"'$(
 #    g=$(__git_ps1 " (%s)")
@@ -82,3 +79,22 @@ export PATH="/Users/daniel/anaconda/bin:$PATH"
 export ATLAS_HOME=/usr/local/Cellar/atlassian-plugin-sdk/4.2.9/
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+##
+# Your previous /Users/daniel/.bash_profile file was backed up as /Users/daniel/.bash_profile.macports-saved_2013-12-18_at_14:04:19
+##
+
+# MacPorts Installer addition on 2013-12-18_at_14:04:19: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+##
+# Your previous /Users/daniel/.bash_profile file was backed up as /Users/daniel/.bash_profile.macports-saved_2013-12-18_at_14:12:17
+##
+
+# MacPorts Installer addition on 2013-12-18_at_14:12:17: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+export PATH=$HOME/bin/packer:$PATH

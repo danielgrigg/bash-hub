@@ -4,3 +4,6 @@
 [alias]
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[user]
+	name = Daniel C Grigg
+	email = daniel.grigg@covata.com
