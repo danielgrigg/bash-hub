@@ -22,6 +22,7 @@ alias c='git commit'
 alias s='git status'
 alias p='git pull'
 alias ss='git status -s'
+alias netstat_local='netstat -an -f inet'
 alias kd='git difftool'
 alias km='git mergetool'
 
