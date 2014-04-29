@@ -25,6 +25,10 @@ alias ss='git status -s'
 alias netstat_local='netstat -an -f inet'
 alias kd='git difftool'
 alias km='git mergetool'
+alias r='git pull --rebase'
+
+export LC_CTYPE=C 
+export LANG=C
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_md=$'\E[01;31m'
