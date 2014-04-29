@@ -85,21 +85,14 @@ if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
   export PATH=$OCLINT_HOME/bin:$PATH
 fi
 
-#export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
+eval `keychain --eval --agents ssh --inherit any id_dsa` 
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
 
 # MacPorts Installer addition on 2013-12-18_at_14:04:19: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 export PATH=$HOME/bin/packer:$PATH
-
-##
-# Your previous /Users/daniel/.bash_profile file was backed up as /Users/daniel/.bash_profile.macports-saved_2014-03-28_at_12:56:35
-##
-
-# MacPorts Installer addition on 2014-03-28_at_12:56:35: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
 
