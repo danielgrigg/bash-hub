@@ -85,13 +85,13 @@ if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
   export PATH=$OCLINT_HOME/bin:$PATH
 fi
 
-eval `keychain --eval --agents ssh --inherit any id_dsa` 
-
 #export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
 
 # MacPorts Installer addition on 2013-12-18_at_14:04:19: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+eval `keychain --eval --agents ssh --inherit any id_dsa` 
 
 # bash-completion
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
