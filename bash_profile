@@ -26,6 +26,8 @@ alias netstat_local='netstat -an -f inet'
 alias kd='git difftool'
 alias km='git mergetool'
 alias r='git pull --rebase'
+alias l='git log --pretty=oneline'
+alias u='git push'
 
 export LC_CTYPE=C 
 export LANG=C

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ !($1 && $2 && $3) ]]; then
+  echo "Usage: replaceall <filename> <search-for> <replace-with>"
+  exit
+fi
+
+sed -i '' "s/$2/$3/g" $1
