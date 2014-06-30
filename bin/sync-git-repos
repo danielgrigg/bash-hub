@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 
+set -e
+set -u
+
+verbose=${1:-""}
+
 for f in *; do
   cd $f
   if [[ -d .git ]]; then
+    if [[ $verbose = "-v" ]]; then
+      echo "Syncing $f..."
+    fi
     git commit -am "pre-sync commit"
     git pull -X theirs
     git push
+    if [[ $verbose = "-v" ]]; then 
+      echo "Syncing $f finished"
+    fi
   fi
   cd ..
-fi
+done
