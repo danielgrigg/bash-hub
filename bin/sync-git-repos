@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+for f in *; do
+  cd $f
+  if [[ -d .git ]]; then
+    git commit -am "pre-sync commit"
+    git pull -X theirs
+    git push
+  fi
+  cd ..
+fi

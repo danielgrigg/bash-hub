@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for package in pip python ipython nosetests; do
+  port select --list $package
+done
