@@ -4,6 +4,7 @@ alias la='ll -a'
 alias lk='ls -lSr'
 alias lt='ls -ltr'
 alias egrep='egrep -I --color=auto'
+alias grep=egrep
 alias rgrep='grep -r'
 alias less='less -R'
 alias ldd='otool -L'
