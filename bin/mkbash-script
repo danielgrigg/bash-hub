@@ -1,34 +1,27 @@
 #!/usr/bin/env bash
 
+SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [[ $# < 1 ]]; then 
-  echo "Usage: mkbash <script_name>"
+  echo "Usage: mkbash [--standalone] script_name"
   exit 1
+fi
+
+if [[ $1 = '--standalone' ]]; then
+  options=$1
+  shift
 fi
 
 script_name=$1
 target=~/bin/$script_name
 
-echo "#!/usr/bin/env bash" > $target
-echo 'DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-NORMAL=$(tput sgr0)
-GREEN=$(tput setaf 2; tput bold)
-YELLOW=$(tput setaf 3)
-RED=$(tput setaf 1)
-
-function red() {
-  echo -e "$RED$*$NORMAL"
-}
-
-function green() {
-  echo -e "$GREEN$*$NORMAL"
-}
-
-function yellow() {
-  echo -e "$YELLOW$*$NORMAL"
-}
-
-' >> $target
+if [[ $options = '--standalone' ]]; then
+  cat $SOURCE_DIR/boot.bash > $target
+else
+  echo '#!/usr/bin/env bash' > $target
+  echo >> $target
+  echo '. boot.bash' >> $target
+fi
 
 chmod 755 $target
 
