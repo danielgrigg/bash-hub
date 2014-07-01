@@ -18,17 +18,19 @@ alias emacs='open -a Aquamacs'
 alias gvim='open -a MacVim'
 
 alias a='git add'
+alias u='git push'
 alias d='git diff -w'
 alias c='git commit'
 alias s='git status'
 alias p='git pull'
+alias f='git fetch'
 alias ss='git status -s'
-alias netstat_local='netstat -an -f inet'
-alias kd='git difftool'
-alias km='git mergetool'
 alias r='git pull --rebase'
 alias l='git log --pretty=oneline'
-alias u='git push'
+alias kd='git difftool'
+alias km='git mergetool'
+
+alias netstat_local='netstat -an -f inet'
 
 export LC_CTYPE=C 
 export LANG=C
