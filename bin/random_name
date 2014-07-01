@@ -1,0 +1,3 @@
+#!/bin/sh
+
+head -c8 /dev/random | base64 | cut -c1-6 | tr -cd '[[:alnum:]]._-'
