@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+while true; do
+
+  X=$(cat ~/weather/AU/$1.txt)
+  echo "$(date),$X" >> $1.txt
+  sleep 60 
+done
+
