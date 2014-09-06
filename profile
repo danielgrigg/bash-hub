@@ -55,3 +55,6 @@ function extract()      # Handy Extract Program
 }
 
 export PS1='\W[\j]\$ '
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/daniel/.gvm/bin/gvm-init.sh" ]] && source "/Users/daniel/.gvm/bin/gvm-init.sh"

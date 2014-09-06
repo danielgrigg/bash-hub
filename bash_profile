@@ -29,6 +29,7 @@ alias r='git pull --rebase'
 alias l='git log --pretty=oneline'
 alias kd='git difftool'
 alias km='git mergetool'
+alias pp='pygmentize'
 
 alias netstat_local='netstat -an -f inet'
 
@@ -48,6 +49,8 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
+
 # Add ruby gems
 
 if [[ $(type -p brew) ]]; then
@@ -102,3 +105,9 @@ eval `keychain --eval --agents ssh --inherit any id_dsa`
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
   . /opt/local/etc/profile.d/bash_completion.sh
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/daniel/.gvm/bin/gvm-init.sh" ]] && source "/Users/daniel/.gvm/bin/gvm-init.sh"
