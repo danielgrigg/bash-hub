@@ -14,7 +14,7 @@ alias h='history'
 alias j='jobs -l'
 alias whicha='type -a'
 alias ..='cd ..'
-alias emacs='open -a Aquamacs'
+alias emacs='open -a Emacs'
 alias gvim='open -a MacVim'
 
 alias a='git add'
@@ -51,11 +51,6 @@ export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 
-# Add ruby gems
-
-if [[ $(type -p brew) ]]; then
-  export PATH=$(brew --prefix ruby)/bin:$PATH
-fi
 #export JAVA_HOME=/Library/Java/Home
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
 #export LEIN_REPL_HOST=10.0.1.4
@@ -110,3 +105,4 @@ export PATH=$HOME/.cabal/bin:$PATH
 export PATH="~/node_modules/.bin:$PATH"
 
 [[ -s "/Users/daniel/.gvm/bin/gvm-init.sh" ]] && source "/Users/daniel/.gvm/bin/gvm-init.sh"
+
