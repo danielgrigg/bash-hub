@@ -106,3 +106,6 @@ export PATH="~/node_modules/.bin:$PATH"
 
 [[ -s "/Users/daniel/.gvm/bin/gvm-init.sh" ]] && source "/Users/daniel/.gvm/bin/gvm-init.sh"
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+      . `brew --prefix`/etc/bash_completion
+fi
