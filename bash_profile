@@ -51,8 +51,8 @@ export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
 export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 
-#export JAVA_HOME=/Library/Java/Home
-#export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_21)
+export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_71)
 #export LEIN_REPL_HOST=10.0.1.4
 shopt -s cdspell
 
@@ -94,7 +94,7 @@ fi
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-eval `keychain --eval --agents ssh --inherit any id_dsa` 
+#eval `keychain --eval --agents ssh --inherit any id_dsa` 
 
 # bash-completion
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
