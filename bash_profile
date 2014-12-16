@@ -33,6 +33,7 @@ alias pp='pygmentize'
 
 alias netstat_local='netstat -an -f inet'
 
+export BASH_HUB_HOME=~/hubs/bash-hub
 export LC_CTYPE=C 
 export LANG=C
 
@@ -109,3 +110,5 @@ export PATH="~/node_modules/.bin:$PATH"
 if [ -f `brew --prefix`/etc/bash_completion ]; then
       . `brew --prefix`/etc/bash_completion
 fi
+
+. $BASH_HUB_HOME/git-flow-completion.bash
