@@ -34,8 +34,8 @@ alias pp='pygmentize'
 alias netstat_local='netstat -an -f inet'
 
 export BASH_HUB_HOME=~/hubs/bash-hub
-export LC_CTYPE=C 
-export LANG=C
+#export LC_CTYPE=C 
+#export LANG=C
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -112,3 +112,5 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 . $BASH_HUB_HOME/git-flow-completion.bash
+
+export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -Xss2M"
