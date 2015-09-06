@@ -22,13 +22,14 @@ alias u='git push'
 alias d='git diff -w'
 alias c='git commit'
 alias s='git status'
-alias f='git fetch'
 alias ss='git status -s'
 alias p='git pull --rebase'
 alias l='git log --pretty=oneline'
 alias kd='git difftool'
 alias km='git mergetool'
 alias pp='pygmentize'
+
+alias m='docker-machine'
 
 alias netstat_local='netstat -an -f inet'
 
