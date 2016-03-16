@@ -15,7 +15,6 @@ alias j='jobs -l'
 alias whicha='type -a'
 alias ..='cd ..'
 alias emacs='open -a Emacs'
-alias gvim='open -a MacVim'
 
 alias a='git add'
 alias u='git push'
@@ -128,3 +127,9 @@ function removeFromPath() {
 }
 
 setjdk 1.8
+
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+  GIT_PROMPT_THEME=Default
+  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
+

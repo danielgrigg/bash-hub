@@ -1,9 +1,33 @@
-[color]
-	ui = true
-
-[alias]
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [user]
-	name = Daniel C Grigg
-	email = daniel.grigg@covata.com
+	name = Daniel Casimir Grigg
+	email = daniel.grigg@skyfii.com
+[push]
+	default = current
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/daniel/.gitignore_global
+  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+[color]
+  ui = true
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[color "diff"]
+  commit = green
+  meta = yellow
+  frag = cyan
+  old = red
+  new = green
+  whitespace = red reverse
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/bcomp -ro $LOCAL $REMOTE
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pull]
+	default = --ff-only
+[diff]
+	tool = bc3
