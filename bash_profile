@@ -69,7 +69,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-export PS1='\W$(__git_ps1) \$ '
+export PS1='(${DOCKER_MACHINE_NAME}) \W$(__git_ps1) \$ '
 
 #export PS1=$LIGHT_GRAY"\u@\h"'$(
 #    g=$(__git_ps1 " (%s)")
@@ -104,3 +104,6 @@ fi
 . $BASH_HUB_HOME/git-flow-completion.bash
 
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -Xss2M"
+eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/shims:$PATH"
+
