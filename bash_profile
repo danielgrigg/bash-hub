@@ -15,7 +15,6 @@ alias j='jobs -l'
 alias whicha='type -a'
 alias ..='cd ..'
 alias emacs='open -a Emacs'
-alias gvim='open -a MacVim'
 
 alias a='git add'
 alias u='git push'
@@ -69,16 +68,9 @@ GIT_PS1_SHOWDIRTYSTATE=true
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-export PS1='(${DOCKER_MACHINE_NAME}) \W$(__git_ps1) \$ '
+# export PS1='(${DOCKER_MACHINE_NAME}) \W$(__git_ps1) \$ '
+export PS1='\W$(__docker_machine_ps1)$(__git_ps1) \$ '
 
-#export PS1=$LIGHT_GRAY"\u@\h"'$(
-#    g=$(__git_ps1 " (%s)")
-#    if [[ "$g" =~ \*\)$ ]]
-#    then echo "'$YELLOW'$g"
-#    elif [[ "$g" =~ \+\)$ ]]
-#    then echo "'$MAGENTA'$g"
-#    else echo "'$CYAN'$g"
-#    fi)'$BLUE" \w"$GREEN": "
 
 OCLINT_RELEASE=oclint-0.8.dev.d09e807
 if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
@@ -101,9 +93,43 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
       . `brew --prefix`/etc/bash_completion
 fi
 
+# DOCKER
+. $BASH_HUB_HOME/docker/docker-completion.bash
+. $BASH_HUB_HOME/docker/docker-machine-prompt.bash
+. $BASH_HUB_HOME/docker/docker-machine-wrapper.bash
+. $BASH_HUB_HOME/docker/docker-machine-completion.bash
+. $BASH_HUB_HOME/docker/docker-compose-completion.bash
+
 . $BASH_HUB_HOME/git-flow-completion.bash
 
-export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -Xss2M"
-eval "$(rbenv init -)"
-# export PATH="$HOME/.rbenv/shims:$PATH"
+export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
+# eval "$(rbenv init -)"
+export MONO_GAC_PREFIX=/usr/local
+
+function setjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+}
+
+function getjdk() { 
+  /usr/libexec/java_home | sed -E -e 's;.*/jdk;;' -e 's;\.jdk.*;;'
+}
+
+function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+}
+
+setjdk 1.8
+
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+  GIT_PROMPT_THEME=Default
+  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
+>>>>>>> dc7bbe49c40f4ad2ac7792cf7feb3469b90543b1
 
