@@ -1,8 +1,6 @@
 [user]
 	name = Daniel Casimir Grigg
-	email = daniel.grigg@skyfii.com
-[push]
-	default = current
+	email = mail@danielgrigg.com
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/daniel/.gitignore_global
@@ -23,11 +21,16 @@
   whitespace = red reverse
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/bcomp -ro $LOCAL $REMOTE
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[pull]
-	default = --ff-only
 [diff]
 	tool = bc3
+[pull]
+  # rebase = true
+[push]
+  default = current
+[alias]
+  glo = log --decorate --oneline --graph
+  glg = log --decorate --graph --abbrev-commit --date=relative

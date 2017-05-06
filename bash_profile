@@ -16,21 +16,25 @@ alias whicha='type -a'
 alias ..='cd ..'
 alias emacs='open -a Emacs'
 
+alias p='git pull'
 alias a='git add'
 alias u='git push'
 alias d='git diff -w'
 alias c='git commit'
 alias s='git status'
 alias ss='git status -s'
-alias p='git pull --rebase'
 alias l='git log --pretty=oneline'
 alias kd='git difftool'
 alias km='git mergetool'
 alias pp='pygmentize'
+alias epochtime='date +%s'
 
 alias m='docker-machine'
 
 alias netstat_local='netstat -an -f inet'
+
+alias hq='cd ~/skyfii/skyfiihq'
+alias spa='cd ~/skyfii/skyfii-io-platform-spa-ui'
 
 export BASH_HUB_HOME=~/hubs/bash-hub
 #export LC_CTYPE=C 
@@ -44,19 +48,16 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/daniel/hubs/clojure-hub/bin:/Users/daniel/hubs/clojure-hub/bin # clojure-hub
-export PATH=/usr/local/sbin:$PATH
+export PATH=usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH
 export PATH=$HOME/bin:$PATH
-export PATH=/Applications/Calibre.app/Contents/MacOS:$PATH
-export PATH=/Applications/VirtualBox.app/Contents/MacOS:$PATH
-export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/vendor/kafka/bin:$PATH
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 function psgrep () { ps axu | grep -v grep | igrep "$@"; }
 
 source ~/.git-completion.bash
-source ~/.git-prompt.sh
+# source ~/.git-prompt.sh
 
 MAGENTA="\[\033[0;35m\]"
 YELLOW="\[\033[0;33m\]"
@@ -64,13 +65,10 @@ BLUE="\[\033[34m\]"
 LIGHT_GRAY="\[\033[0;37m\]"
 CYAN="\[\033[0;36m\]"
 GREEN="\[\033[0;32m\]"
-GIT_PS1_SHOWDIRTYSTATE=true
+#GIT_PS1_SHOWDIRTYSTATE=true
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-# export PS1='(${DOCKER_MACHINE_NAME}) \W$(__git_ps1) \$ '
-export PS1='\W$(__docker_machine_ps1)$(__git_ps1) \$ '
-
 
 OCLINT_RELEASE=oclint-0.8.dev.d09e807
 if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
@@ -78,33 +76,18 @@ if [[ -d ~/tools/$OCLINT_RELEASE ]]; then
   export PATH=$OCLINT_HOME/bin:$PATH
 fi
 
-# bash-completion
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-  . /opt/local/etc/profile.d/bash_completion.sh
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-export PATH=$HOME/.cabal/bin:$PATH
 export PATH="~/node_modules/.bin:$PATH"
-export PATH=$HOME/vendor/activator:$PATH
 
 [[ -s "/Users/daniel/.gvm/bin/gvm-init.sh" ]] && source "/Users/daniel/.gvm/bin/gvm-init.sh"
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-      . `brew --prefix`/etc/bash_completion
-fi
-
 # DOCKER
-. $BASH_HUB_HOME/docker/docker-completion.bash
 . $BASH_HUB_HOME/docker/docker-machine-prompt.bash
-. $BASH_HUB_HOME/docker/docker-machine-wrapper.bash
-. $BASH_HUB_HOME/docker/docker-machine-completion.bash
-. $BASH_HUB_HOME/docker/docker-compose-completion.bash
 
 . $BASH_HUB_HOME/git-flow-completion.bash
 
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
-# eval "$(rbenv init -)"
-export MONO_GAC_PREFIX=/usr/local
 
 function setjdk() {
   if [ $# -ne 0 ]; then
@@ -127,9 +110,31 @@ function removeFromPath() {
 
 setjdk 1.8
 
-if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-  GIT_PROMPT_THEME=Default
-  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 >>>>>>> dc7bbe49c40f4ad2ac7792cf7feb3469b90543b1
 
+export HOMEBREW_NO_ANALYTICS=1
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+#export CC=clang
+#export CXX=clang++
+#export CFLAGS=-Qunused-arguments
+#export CPPFLAGS=-Qunused-arguments
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/skyfii/bin:$PATH"
+export PATH="$HOME/.rvm/gems/ruby-2.4.0/bin:$HOME/.rvm/gems/ruby-2.4.0@global/bin:$HOME/.rvm/rubies/ruby-2.4.0/bin:$HOME/.rvm/bin:$PATH"
+
+. ~/.secrets
+
+GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ \[\033[0;33m\]\w\[\033[0;0m\]"
+GIT_PROMPT_END="$(__docker_machine_ps1) $ "

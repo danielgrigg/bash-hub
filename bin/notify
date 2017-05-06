@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+content=${1:-Action complete}
+title=${2:-Notify}
+osascript -e "display notification \"$content\" with title \"$title\""

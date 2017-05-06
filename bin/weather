@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+apiKey=d1a8b664b99a2cdefedffe437c91f6f7
+city=${1-Sydney}
+data=$(curl -Ls "http://api.openweathermap.org/data/2.5/forecast?q=$city,Australia&APPID=$apiKey&units=metric")
+#data=$(cat ./sample-forecast.json)
+lines=$(echo $data | jq -cr 'limit(10;.list[]) |  [.dt, .main.temp, .weather[].description] | @csv')
+IFS=$'\n'
+for l in $lines; do
+  IFS=$',' read -r dt temp description <<< "$l"
+  echo "$(date -r $dt) $temp $description"
+done
