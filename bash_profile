@@ -48,7 +48,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export PATH=usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/vendor/kafka/bin:$PATH
 
@@ -78,7 +78,7 @@ fi
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-export PATH="~/node_modules/.bin:$PATH"
+# export PATH="~/node_modules/.bin:$PATH"
 
 [[ -s "/Users/daniel/.gvm/bin/gvm-init.sh" ]] && source "/Users/daniel/.gvm/bin/gvm-init.sh"
 
@@ -114,7 +114,6 @@ if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
   source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
->>>>>>> dc7bbe49c40f4ad2ac7792cf7feb3469b90543b1
 
 export HOMEBREW_NO_ANALYTICS=1
 
